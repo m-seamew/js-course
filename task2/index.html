@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1</title>
+  <link rel="stylesheet" href="build/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400;1,500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="task">
+      <div class="header">
+        <h2>1. Ремонт</h2>
+      </div>
+      <form class="form task__form" id="form-task1">
+        <input class="task__input" type="number" id="length" placeholder="Введите длину">
+        <input class="task__input" type="number" id="width" placeholder="Введите ширину">
+        <input class="task__input" type="number" id="height" placeholder="Введите высоту стен">
+        <input class="task__input task__input--button" type="submit" id="button-task1">
+      </form>
+      <div id="task1-ans" class="ans"></div>
+    </div>
+
+    <div class="task">
+      <div class="header">
+        <h2>2. Золотой песок</h2>
+      </div>
+      <form class="form task__form" id="form-task2">
+        <div class="task__container">
+          <div class="task2__price">
+            <input class="task__input" id="A1" placeholder="Cтоимость\кг за песок А1">
+            <input class="task__input" id="A2" placeholder="Cтоимость\кг за песок А2">
+            <input class="task__input" id="A3" placeholder="Cтоимость\кг за песок А3">
+          </div>
+          <div class="task2__weight">
+            <input class="task__input" id="B1" placeholder="Обьем тары B1, кг">
+            <input class="task__input" id="B2" placeholder="Обьем тары B2, кг">
+            <input class="task__input" id="B3" placeholder="Обьем тары B3, кг">
+          </div>
+
+          <input class="task__input task__input--button" type="submit" id="button-task2">
+        </div>
+      </form>
+      <div id="task2-ans" class="ans"></div>
+    </div>
+
+    <div class="task">
+      <div class="header">
+        <h2>3. Счастливый билет</h2>
+      </div>
+      <form class="form task__form" id="form-task3">
+        <input class="task__input" pattern="[0-9]{6}" maxlength="6" type="phone" id="ticket"
+          placeholder="Введите номер билета">
+
+        <input class="task__input task__input--button" type="submit" id="button-task3">
+      </form>
+      <div id="task3-ans" class="ans"></div>
+    </div>
+  </div>
+  <script src="./build/js/app.min.js"></script>
+</body>
+
+</html>
