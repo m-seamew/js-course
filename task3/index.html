@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1</title>
+  <link rel="stylesheet" href="build/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400;1,500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="task">
+      <div class="header">
+        <h2>1. Сумма минимумов</h2>
+      </div>
+      <form class="form task__form task__form--task1" id="task1">
+        <textarea class="task__input textarea" id="textarea1"
+          placeholder="Введите данные масивов: каждый новый массив начиная с новой строки, эл. массива разделите запятой"></textarea>
+        <div class="task1-right">
+          <input class="task__input task__input--button" type="submit" id="button-task1">
+          <div class="example">
+            <div class="example__header">Example:</div>
+            1,2,3,4,5<br>
+            99,3,4<br>
+            0.1,0.3
+          </div>
+        </div>
+      </form>
+      <div id="task1-ans" class="ans"></div>
+    </div>
+
+    <div class="task">
+      <div class="header">
+        <h2>2. Два самые большие значения</h2>
+      </div>
+      <form class="form task__form task__form--task1" id="task2">
+        <textarea class="task__input textarea" id="textarea2"
+          placeholder="Введите значения через запятую без пробела"></textarea>
+        <div class="task1-right">
+          <input class="task__input task__input--button" type="submit" id="button-task2">
+          <div class="example">
+            <div class="example__header">Example:</div>
+            1,2,10,8
+          </div>
+        </div>
+      </form>
+      <div id="task2-ans" class="ans"></div>
+    </div>
+
+
+    <div class="task">
+      <div class="header">
+        <h2>3. Длина минимально короткого слова</h2>
+      </div>
+      <form class="form task__form task__form--task1" id="task3">
+        <textarea class="task__input textarea" id="textarea3" placeholder="Введите строку"></textarea>
+        <div class="task1-right">
+          <input class="task__input task__input--button" type="submit" id="button-task3">
+          <div class="example">
+            <div class="example__header">Examples:</div>
+            bitcoin take over the world maybe who knows perhaps<br>
+            turns out random test cases are easier than writing out basic ones<br>
+            i want to travel the world writing code one day
+          </div>
+        </div>
+      </form>
+      <div id="task3-ans" class="ans"></div>
+    </div>
+
+    <div class="task">
+      <div class="header">
+        <h2>4. Cобрать предложение</h2>
+      </div>
+      <form class="form task__form task__form--task1" id="task4">
+        <textarea class="task__input textarea" id="textarea4" placeholder="Введите строку"></textarea>
+        <div class="task1-right">
+          <input class="task__input task__input--button" type="submit" id="button-task4">
+          <div class="example">
+            <div class="example__header">Examples:</div>
+            is2 Thi1s T4est 3a<br>
+            4of Fo1r pe6ople g3ood th5e the2<br>
+          </div>
+        </div>
+      </form>
+      <div id="task4-ans" class="ans"></div>
+    </div>
+    <div class="task">
+      <div class="header">
+        <h2>5. Изменение параметров стилей</h2>
+      </div>
+      <form class="form task__form task__form--task1" id="task5">
+        <input class="task__input" id="color" placeholder="Введите цвет для круга">
+        <input class="task__input" id="height" placeholder="Введите высоту круга">
+        <div class="task1-right">
+          <input class="task__input task__input--button" type="submit" id="button-task5">
+          <div class="example">
+            <div class="example__header">Examples:</div>
+            #666666<br>
+            50px<br>
+          </div>
+        </div>
+      </form>
+      <div id="circle" class="ans ans__task5"></div>
+    </div>
+
+  </div>
+
+
+
+
+  </div>
+
+  <script src="./build/js/app.min.js"></script>
+</body>
+
+</html>
