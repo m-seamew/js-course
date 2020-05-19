@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1</title>
+  <link rel="stylesheet" href="build/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400;1,500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="task">
+      <div class="header">
+        <h2>1. Поиск стульев</h2>
+      </div>
+      <form class="form task__form task__form--task1" id="task1">
+        <textarea class="task__input textarea" id="textarea1"
+          placeholder="Введите данные масивов наличие мест: каждый новый массив начиная с новой строки, участники: XXX, последний эл - номер количества стульев"></textarea>
+          <input type="number" class="task__input input__task1"   placeholder="Необходимое кол-во стульев">
+        <div class="task1-right">
+          <input class="task__input task__input--button" type="submit" id="button-task1">
+          <div class="example">
+            <div class="example__header">Example:</div>
+            XXX, 3<br>
+            XXXXX, 6<br>
+            XXXXXX, 9<br>
+            XXX, 2<br>
+            Поле количества стульев - 4
+          </div>
+        </div>
+      </form>
+      <div id="task1-ans" class="ans"></div>
+    </div>
+
+    <div class="task">
+      <div class="header">
+        <h2>2. Крестики-нолики</h2>
+      </div>
+      <form class="form task__form task__form--task1" id="task2">
+        <textarea class="task__input textarea" id="textarea2"
+          placeholder="Введите массив - состояние доски"></textarea>
+          
+        <div class="task1-right">
+          <input class="task__input task__input--button" type="submit" id="button-task2">
+          <div class="example">
+            <div class="example__header">Example:</div>
+            0,0,1<br>
+            0,1,2<br>
+            2,1,0<br>
+          </div>
+        </div>
+      </form>
+      <div id="task1-ans" class="ans"></div>
+    </div>
+
+  </div>
+
+  </div>
+
+
+
+
+  </div>
+
+  <script src="./build/js/app.min.js"></script>
+</body>
+
+</html>

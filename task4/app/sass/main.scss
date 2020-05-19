@@ -1,0 +1,89 @@
+//@import "bs/variables";
+@import "site/variables";
+
+@import "site/mixins/mixins";
+
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  box-sizing: border-box;
+}
+
+.task__input{
+  width: 200px;
+  height: 24px;
+  margin-right: 20px;
+  padding-left: 10px;
+  border: 1px solid #4b4b4b;
+  border-radius: 3px;
+}
+.task__input--button{
+  height: 28px;
+}
+
+.task__container{
+  display: flex;
+}
+
+.task2__price,
+.task2__weight{
+  display: flex;
+  flex-direction: column;
+}
+
+.task2__price .task__input:not(:last-child){
+  margin-bottom: 15px;
+}
+
+.task2__weight .task__input:not(:last-child){
+  margin-bottom: 15px;
+}
+
+.task{
+ margin-bottom: 50px;
+}
+
+.ans{
+  margin-top: 15px;
+}
+
+.container{
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.textarea{
+  height: 100px;
+  width: 200px;
+  resize: none;
+}
+
+.task__form--task1{
+  display: flex;
+  align-items: flex-start;
+}
+
+.textarea{
+
+padding: 20px 20px;}
+
+.task1-right{
+  display: flex;
+  flex-direction: column;
+}
+
+.example{
+  margin-top: 15px;
+  font-size: 12px;
+  line-height: 18px;
+  color: darkslateblue;
+}
+
+.example__header{
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+
