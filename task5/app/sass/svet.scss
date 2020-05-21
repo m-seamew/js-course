@@ -1,0 +1,52 @@
+.svet{
+  @include block( 240px, 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  
+}
+
+.svet--bg{
+  background-color: lightgoldenrodyellow;
+}
+
+.svet__container{
+  @include block(200px, 40px);
+  border: 2px solid #4b4b4b;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.svet__button{
+  @include block( 60px, 44px);
+ border-radius: 3px;
+ flex-grow: 0;
+}
+
+.svet__item{
+  @include block(25px, 25px);
+  border-radius: 50%;
+ 
+}
+
+.svet__item--red{
+  background-color: red;
+}
+
+.svet__item--yellow{
+  background-color: orange;
+}
+
+.svet__item--green{
+  background-color: green;
+}
+
+.svet__item:not(._active){
+  background-color: lightgray;
+}
