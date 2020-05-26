@@ -13,9 +13,9 @@ function random(min, max) {
 }
 
 function randomColor() {
-  r = Math.floor(Math.random() * (256));
-  g = Math.floor(Math.random() * (256));
-  b = Math.floor(Math.random() * (256));
+  let r = Math.floor(Math.random() * (256));
+  let g = Math.floor(Math.random() * (256));
+  let b = Math.floor(Math.random() * (256));
   let arr = `rgb(${ r }, ${ g }, ${ b })`;
   return arr;
 }
