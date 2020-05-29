@@ -7,12 +7,13 @@ const container = document.querySelector('.slider__group');
 const sliderMainClass = 'slider';
 const slideClass = 'slider__slide';
 const slideClassActive = '_active';
+const sliderContainer ='slider__container';
 
 let slides = [];
-let initialization = init(sliderMainClass, slideClass, slides);
+let initialization = init(sliderMainClass, slideClass, slides,sliderContainer);
 
 
-function init(slider, slideClass, slideObjArr) {
+function init(slider, slideClass, slideObjArr, sliderContainer) {
   let images = [...document.querySelectorAll(`.${slider} > *> * > .${slideClass}`)];
 
   let bgUrl = images.map(function (el) {
@@ -27,8 +28,9 @@ function init(slider, slideClass, slideObjArr) {
   });
 
   bgUrl.map(function (el, index) {
+    let width = document.querySelector(`.${sliderContainer}`).clientWidth;
     slideObjArr.push({
-      slider: `${slider}`, id: index, url: el[0], transform: `translateX(${-index * 100}%)`, active: el[1], inner: el[2]
+      slider: `${slider}`, id: index, url: el[0], transform: `translateX(${-index * width}px)`, active: el[1], inner: el[2]
     })
   })
   return slideObjArr;
@@ -46,7 +48,6 @@ function clickLeft(slidesData) {
 
   } else {
     slidesData[length - 1].active = true;
-    console.log('hey');
   };
 
   renderSlider(sliderMainClass, slideClass, slideClassActive, initialization, container);
@@ -71,28 +72,35 @@ function clickRight(slidesData) {
 }
 
 
-
-
-function dragAndDrop(changeX) {
-  let previous = document.querySelector('.slider__group');
-  previous.style.position = "relative";
-  previous.style.left = `${-changeX}px`;
   
+
+function dragAndDrop(changeX,res) {
+  let arr = document.querySelector('.slider__group');
+  //let mask = /(-\d+)|\d+/
+  //let res = arr.style.transform.match(mask);
+  //console.log(`translate ${(+res[0]+changeX)}px`);
+
+  arr.style.transform = `translateX(${(+res[0]-changeX)}px)`;
+ 
 }
 
 
 let change = 0;
 document.querySelector('.slider__container').onmousedown = (event) => {
   let e = event.pageX;
-  change = mouseMove(e);
+  document.querySelector('.slider__group').style.transition ="transform 0s";
+  let mask = /(-\d+)|\d+/
+  let res = document.querySelector('.slider__group').style.transform.match(mask);
+
+  change = mouseMove(e,res);
 
 }
 
 
-function mouseMove(e) {
+function mouseMove(e,res) {
   document.querySelector('.slider__container').onmousemove = (event) => {
     change = e - event.pageX;
-    dragAndDrop(change);
+    dragAndDrop(change,res);
     console.log(change); 
     return change;
     
@@ -103,22 +111,19 @@ document.querySelector('.slider__container').onmouseup = function () {
   let previous = document.querySelector('.slider__group');
 
   document.querySelector('.slider__container').onmousemove = null;
-  // document.querySelector('.slider__container').onmouseup = null;
-  if (change < -150) {
+
+  if (change < -100) {
     clickLeft(initialization);
+ 
   }
   else{
-    previous.style.position = "";
-    previous.style.left = `0px`;
+    renderSlider(sliderMainClass, slideClass, slideClassActive, initialization, container);
   }
-  if (change > 150) {
+  if (change > 100) {
     clickRight(initialization);
+  }else{
+    renderSlider(sliderMainClass, slideClass, slideClassActive, initialization, container);
   }
-  else{
-    previous.style.position = "";
-    previous.style.left = `0px`;
-  }
-  //previous.style.transitionDuration = "0s";
 }
 
 
@@ -127,7 +132,7 @@ renderSlider(sliderMainClass, slideClass, slideClassActive, initialization, cont
 
 
 function renderSlider(sliderName, slideClass, slideClassActive, slidesData, container) {
-
+  document.querySelector('.slider__group').style.transition ="transform 1s";
   container.innerHTML = slidesData.map(el => {
     if (el.active == true && el.slider == sliderName) {
       container.style.transform = el.transform
@@ -137,7 +142,7 @@ function renderSlider(sliderName, slideClass, slideClassActive, slidesData, cont
       return `<div class="${slideClass}" data-id=${el.id}>${el.inner}</div>`;
     }
   }).join('');
-
+  //document.querySelector('.slider__group').style.transition ="transform 0s";
 }
 
 //Controller 
