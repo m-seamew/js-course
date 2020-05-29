@@ -88,21 +88,17 @@ document.querySelector('.todo-app__accept-newtask').addEventListener('click', ad
 
 */
 
-//transform: translateX(-100%);
-
-
-
 //Model
 const container = document.querySelector('.slider__group');
 const sliderMainClass = 'slider';
 const slideClass = 'slider__slide';
 const slideClassActive = '_active';
-const sliderContainer ='slider__container';
+const sliderContainer = 'slider__container';
 
 let slides = [];
-let initialization = init(sliderMainClass, slideClass, slides,sliderContainer);
+let initialization = init(sliderMainClass, slideClass, slides, sliderContainer);
 
-
+//Инициация слайдера, сбор данных, создание слайдов.
 function init(slider, slideClass, slideObjArr, sliderContainer) {
   let images = [...document.querySelectorAll(`.${slider} > *> * > .${slideClass}`)];
 
@@ -126,6 +122,8 @@ function init(slider, slideClass, slideObjArr, sliderContainer) {
   return slideObjArr;
 }
 
+
+//Клик влево
 function clickLeft(slidesData) {
 
   let length = slidesData.length;
@@ -143,6 +141,7 @@ function clickLeft(slidesData) {
   renderSlider(sliderMainClass, slideClass, slideClassActive, initialization, container);
 }
 
+//Клик вправо
 function clickRight(slidesData) {
 
   let length = slidesData.length;
@@ -162,39 +161,32 @@ function clickRight(slidesData) {
 }
 
 
-  
 
-function dragAndDrop(changeX,res) {
+//Перетаскивание
+let change = 0;
+
+function dragAndDrop(changeX, res) {
   let arr = document.querySelector('.slider__group');
-  //let mask = /(-\d+)|\d+/
-  //let res = arr.style.transform.match(mask);
-  //console.log(`translate ${(+res[0]+changeX)}px`);
+  arr.style.transform = `translateX(${(+res[0] - changeX)}px)`;
 
-  arr.style.transform = `translateX(${(+res[0]-changeX)}px)`;
- 
 }
 
+function mouseMove(e, res) {
+  document.querySelector('.slider__container').onmousemove = (event) => {
+    change = e - event.pageX;
+    dragAndDrop(change, res);
+    console.log(change);
+    return change;
+  }
+}
 
-let change = 0;
 document.querySelector('.slider__container').onmousedown = (event) => {
   let e = event.pageX;
-  document.querySelector('.slider__group').style.transition ="transform 0s";
+  document.querySelector('.slider__group').style.transition = "transform 0s";
   let mask = /(-\d+)|\d+/
   let res = document.querySelector('.slider__group').style.transform.match(mask);
 
-  change = mouseMove(e,res);
-
-}
-
-
-function mouseMove(e,res) {
-  document.querySelector('.slider__container').onmousemove = (event) => {
-    change = e - event.pageX;
-    dragAndDrop(change,res);
-    console.log(change); 
-    return change;
-    
-  }
+  change = mouseMove(e, res);
 }
 
 document.querySelector('.slider__container').onmouseup = function () {
@@ -204,14 +196,14 @@ document.querySelector('.slider__container').onmouseup = function () {
 
   if (change < -100) {
     clickLeft(initialization);
- 
+
   }
-  else{
+  else {
     renderSlider(sliderMainClass, slideClass, slideClassActive, initialization, container);
   }
   if (change > 100) {
     clickRight(initialization);
-  }else{
+  } else {
     renderSlider(sliderMainClass, slideClass, slideClassActive, initialization, container);
   }
 }
@@ -222,7 +214,7 @@ renderSlider(sliderMainClass, slideClass, slideClassActive, initialization, cont
 
 
 function renderSlider(sliderName, slideClass, slideClassActive, slidesData, container) {
-  document.querySelector('.slider__group').style.transition ="transform 1s";
+  document.querySelector('.slider__group').style.transition = "transform 1s";
   container.innerHTML = slidesData.map(el => {
     if (el.active == true && el.slider == sliderName) {
       container.style.transform = el.transform
@@ -232,12 +224,11 @@ function renderSlider(sliderName, slideClass, slideClassActive, slidesData, cont
       return `<div class="${slideClass}" data-id=${el.id}>${el.inner}</div>`;
     }
   }).join('');
-  //document.querySelector('.slider__group').style.transition ="transform 0s";
 }
 
 //Controller 
 
-//document.querySelector('.slider__left').addEventListener('click', {handleEvent: clickLeft, slidesData: initialization});
+
 
 document.querySelector('.slider__left').onclick = () => {
   let result = clickLeft(initialization);
