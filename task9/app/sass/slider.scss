@@ -1,0 +1,33 @@
+.slider{
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.slider__container{
+  height: 300px;
+  background-color: gray;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.slider__group{
+  height: 100%;
+  display: flex;
+  //transition: transform 1s;
+//  transform: translateX(-100%);
+}
+
+.slider__slide{
+  flex: 1 0 100%;
+ 
+  background-position: center center;
+  background-size: cover;
+}
+
+
+
+.slider__left, .slider__right {
+  color: black;
+  cursor: pointer;
+}
