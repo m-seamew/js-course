@@ -1,7 +1,7 @@
 
 //Cтруктура данных
 
-import Controller from '/app/js/js-site/Controller.js';
+import Controller from './Controller.js';
 const controller = new Controller();
 
 /*
